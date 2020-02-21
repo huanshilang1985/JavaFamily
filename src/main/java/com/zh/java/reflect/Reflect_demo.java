@@ -17,11 +17,15 @@ public class Reflect_demo {
      * @return 字段值
      */
     public static Object getPropertyValue(String property, Object object) {
-        if (object == null)
+        if (object == null){
             return null;
-        Object objectReturn = null; //返回的值
-        String methodName = "get" + StringUtils.capitalize(property);// 得到javabean的get方法
-        String booleanMethodName = "is" + StringUtils.capitalize(property);// 得到boolean类型方法
+        }
+        //返回的值
+        Object objectReturn = null;
+        // 得到javabean的get方法
+        String methodName = "get" + StringUtils.capitalize(property);
+        // 得到boolean类型方法
+        String booleanMethodName = "is" + StringUtils.capitalize(property);
         try {
             objectReturn = object.getClass().getMethod(methodName, null).invoke(object, null);
         } catch (Exception e1) {
